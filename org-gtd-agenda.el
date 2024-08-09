@@ -57,15 +57,25 @@ This is where the project name is displayed, on the left side."
               (format " %%i %%-%d:(org-gtd-agenda--prefix-format) "
                       org-gtd-engage-prefix-width))
              (org-agenda-custom-commands
-             `(("g" "Scheduled today and all NEXT items"
-                ((agenda ""
-                         ((org-agenda-span 1)
-                          (org-agenda-start-day nil)
-                          (org-agenda-skip-additional-timestamps-same-entry t)))
-                 (todo org-gtd-next
-                       ((org-agenda-overriding-header "All actions ready to be executed.")
-                        (org-agenda-prefix-format
-                         '((todo . ,project-format-prefix))))))))))
+              `(("g" "Scheduled today and all NEXT items"
+                 ((agenda "" ((org-agenda-span 1)
+							  (org-deadline-warning-days 0)
+							  (org-agenda-block-separator nil)
+							  (org-agenda-skip-additional-timestamps-same-entry t)))
+				  (tags-todo "*"
+							 ((org-agenda-skip-function '(org-agenda-skip-if nil '(timestamp)))
+							  (org-agenda-skip-function '(org-agenda-skip-entry-if
+								                          'notregexp org-priority-regexp))
+							  (org-agenda-block-separator nil)
+							  (org-agenda-prefix-format '((tags . ,project-format-prefix)))
+							  (org-agenda-sorting-strategy '(priority-down))
+							  (org-agenda-overriding-header "Priority Tasks")))
+                  (todo org-gtd-next
+						((org-agenda-skip-function '(org-agenda-skip-entry-if
+							                         'regexp org-priority-regexp))
+						 (org-agenda-overriding-header "All actions ready to be executed.")
+						 (org-agenda-sorting-strategy '(category-up tag-up))
+                         (org-agenda-prefix-format '((todo . ,project-format-prefix))))))))))
         (org-agenda nil "g")
         (goto-char (point-min)))))
 
