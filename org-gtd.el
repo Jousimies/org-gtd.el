@@ -48,7 +48,7 @@
 (require 'org)
 (require 'org-capture)
 (require 'org-element)
-(require 'org-agenda-property)
+;; (require 'org-agenda-property)
 (require 'org-edna)
 
 (require 'org-gtd-core)

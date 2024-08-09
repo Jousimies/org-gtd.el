@@ -28,7 +28,7 @@
 ;;;; Requirements
 
 (require 'f)
-(require 'org-agenda-property)
+;; (require 'org-agenda-property)
 
 (require 'org-gtd-backward-compatibility)
 
@@ -172,6 +172,7 @@ See `org-todo-keywords' for definition."
   (declare (debug t) (indent 2))
   `(progn
      (require 'org-gtd)
+     (require 'org-agenda-property)
      (let* ((org-use-property-inheritance "ORG_GTD")
             (org-todo-keywords `((sequence ,(string-join `(,org-gtd-next ,org-gtd-next-suffix))
                                            ,(string-join `(,org-gtd-todo ,org-gtd-todo-suffix))
