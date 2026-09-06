@@ -68,6 +68,7 @@ Obsolete: use `org-gtd-create-item' instead."
 
 ;;;;; Private
 
+;;;###autoload
 (defun org-gtd-next-action--maybe-convert-to-delegated ()
   "Prompt to convert next action to delegated item when changed to WAIT.
 

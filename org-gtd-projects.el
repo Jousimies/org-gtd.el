@@ -145,6 +145,7 @@ saves buffer, and cleans up.  Must be called with point on project heading."
     (org-edna-mode 1)
     (setq org-gtd-project--cancel-in-progress nil)))
 
+;;;###autoload
 (defun org-gtd-project--maybe-cancel-from-hook ()
   "Hook function for `org-after-todo-state-change-hook'.
 When a project heading is changed to CNCL, prompts for confirmation
@@ -1003,6 +1004,7 @@ Position determined by `org-gtd-project-progress-cookie-position'."
              (total (cdr counts)))
         (org-gtd-project--set-cookies completed total)))))
 
+;;;###autoload
 (defun org-gtd-project--maybe-update-cookies ()
   "Update project cookies if current heading is a project task.
 Intended to be called from `org-after-todo-state-change-hook'."

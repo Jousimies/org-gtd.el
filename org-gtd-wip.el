@@ -135,6 +135,7 @@ Moves the temp file hash entry and renames the buffer."
         (with-current-buffer buffer
           (rename-buffer (org-gtd-wip--buffer-name new-id) t))))))
 
+;;;###autoload
 (defun org-gtd-wip--cleanup-all-temp-files ()
   "Clean up all temp files (for emergency cleanup or exit)."
   (maphash

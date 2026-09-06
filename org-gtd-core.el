@@ -269,7 +269,7 @@ Validates that:
 
 Only sets the value if validation passes."
   ;; Skip validation during byte compilation or when loading - org-todo-keywords may not be set up yet
-  (if (or byte-compile-current-file
+  (if (or (bound-and-true-p byte-compile-current-file)
           (bound-and-true-p byte-compile-current-buffer)
           (bound-and-true-p load-in-progress))
       (set-default symbol value)
