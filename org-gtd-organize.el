@@ -68,6 +68,7 @@ normalized to `next-action' at lookup time.")
   :reader (lambda (&rest _) (if org-gtd-clarify--skip-refile nil t))
   :description "Update in place (no refile)")
 
+;;;###autoload (autoload 'org-gtd-organize "org-gtd-organize" nil t)
 (transient-define-prefix org-gtd-organize ()
   "Choose how to categorize the current item."
   [:if (lambda () (not org-gtd-clarify--inbox-p))
